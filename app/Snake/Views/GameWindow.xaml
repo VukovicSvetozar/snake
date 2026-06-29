@@ -1,0 +1,122 @@
+﻿<Window x:Class="Snake.Views.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        KeyUp="Window_KeyDown"
+        SizeChanged="Window_SizeChanged"        
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Height="720" Width="1200" MinHeight="440" MinWidth="800">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/GameStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+S" Command="{Binding StartGameCommand}"/>
+        <KeyBinding Gesture="Ctrl+O" Command="{Binding SettingsCommand}"/>
+        <KeyBinding Gesture="Ctrl+L" Command="{Binding LeaderboardCommand}"/>
+        <KeyBinding Gesture="Ctrl+Q" Command="{Binding ExitCommand}"/>
+    </Window.InputBindings>
+
+    <Grid Style="{StaticResource ContainerGridStyle}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Style="{StaticResource LeftPanelBorderStyle}">
+            <Grid Style="{StaticResource LeftPanelGridStyle}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="/Resources/Images/Logo.jpg" Style="{StaticResource LeftPanelImageStyle}"/>
+                <Button Grid.Row="1" Content="Start Game" Command="{Binding StartGameCommand}" Style="{StaticResource StartGameButtonStyle}">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource MenuButtonToolTipStyle}">
+                            Start (Ctrl+S)
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Grid.Row="2" Content="Settings" Command="{Binding SettingsCommand}" Style="{StaticResource SettingsButtonStyle}">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource MenuButtonToolTipStyle}">
+                            Settings (Ctrl+O)
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Grid.Row="3" Content="Leaderboard" Command="{Binding LeaderboardCommand}" Style="{StaticResource LeaderboardButtonStyle}">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource MenuButtonToolTipStyle}">
+                            Leaderboard (Ctrl+L)
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Grid.Row="4" Content="Exit" Command="{Binding ExitCommand}" Style="{StaticResource ExitButtonStyle}">
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource MenuButtonToolTipStyle}">
+                            Exit (Ctrl+Q)
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" Style="{StaticResource GameAreaBorderStyle}">
+            <Grid x:Name="GameArea"/>
+        </Border>
+
+        <Border Grid.Column="2" Style="{StaticResource RightPanelBorderStyle}">
+            <Grid Style="{StaticResource RightPanelGridStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="1" Content="Score:" Style="{StaticResource InfoLabelStyle}"/>
+                <Border Grid.Row="2" Style="{StaticResource InfoBorderStyle}">
+                    <TextBlock Text="{Binding CurrentScore}" Style="{StaticResource InfoTextBlockStyle}"/>
+                </Border>
+
+                <Label Grid.Row="3" Content="Level:" Style="{StaticResource InfoLabelStyle}"/>
+                <Border Grid.Row="4" Style="{StaticResource InfoBorderStyle}">
+                    <TextBlock Text="{Binding CurrentLevel}" Style="{StaticResource InfoTextBlockStyle}"/>
+                </Border>
+
+                <Label Grid.Row="5" Content="Time:" Style="{StaticResource InfoLabelStyle}"/>
+                <Border Grid.Row="6" Style="{StaticResource InfoBorderStyle}">
+                    <TextBlock Text="{Binding ElapsedTime}" Style="{StaticResource InfoTextBlockStyle}"/>
+                </Border>
+
+                <Label Grid.Row="7" Content="Difficulty:" Style="{StaticResource InfoLabelStyle}"/>
+                <Border Grid.Row="8" Style="{StaticResource InfoBorderStyle}">
+                    <TextBlock Text="{Binding Difficulty}" Style="{StaticResource InfoTextBlockStyle}"/>
+                </Border>
+
+                <Label Grid.Row="9" Content="{Binding Information}" Style="{StaticResource InfoPauseLabelStyle}"/>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

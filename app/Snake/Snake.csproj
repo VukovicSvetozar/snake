@@ -1,0 +1,93 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Data\leaderboard.json" />
+	  <None Remove="Resources\Images\Food_1.jpg" />
+	  <None Remove="Resources\Images\Food_2.jpg" />
+	  <None Remove="Resources\Images\Food_3.jpg" />
+	  <None Remove="Resources\Images\Food_4.jpg" />
+	  <None Remove="Resources\Images\Food_5.jpg" />
+	  <None Remove="Resources\Images\Logo.jpg" />
+	  <None Remove="Resources\Images\Obstacle.jpg" />
+	  <None Remove="Resources\Images\Snake_head_down.jpg" />
+	  <None Remove="Resources\Images\Snake_head_left.jpg" />
+	  <None Remove="Resources\Images\Snake_head_right.jpg" />
+	  <None Remove="Resources\Images\Snake_head_up.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Remove="Resources\Styles\GameStyle.xaml" />
+	  <Page Remove="Resources\Styles\LeaderboardStyle.xaml" />
+	  <Page Remove="Resources\Styles\SettingStyle.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\Data\leaderboard.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\Images\Food_1.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Food_2.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Food_3.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Food_4.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Food_5.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Logo.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Obstacle.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Snake_body.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Snake_head_down.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Snake_head_left.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Snake_head_right.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Images\Snake_head_up.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Styles\LeaderboardStyle.xaml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Styles\SettingStyle.xaml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MySqlConnector" Version="2.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\Styles\GameStyle.xaml">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+	</ItemGroup>
+
+</Project>

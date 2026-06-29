@@ -1,0 +1,125 @@
+﻿<Window x:Class="Snake.Views.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Snake.Converter"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Height="720" Width="1000" MinHeight="549" MinWidth="1000">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/SettingStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:SpeedConverter x:Key="SpeedConverter"/>
+            <local:BoolToEnabledConverter x:Key="BoolToEnabledConverter"/>
+            <local:ValueToColorConverter x:Key="ValueToColorConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource ContainerGridStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="16*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Style="{StaticResource HeaderBorderStyle}">
+            <TextBlock Text="Settings" Style="{StaticResource HeaderTextBlockStyle}" />
+        </Border>
+
+        <Border Grid.Row="1" Style="{StaticResource SettingBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" 
+                        Text="Snake Length" 
+                        Style="{StaticResource SettingLabelTextBlockStyle}" />
+                <Slider Grid.Row="0" Grid.Column="2" 
+                        x:Name="SnakeStartLengthSlider" Value="{Binding SnakeStartLength, Mode=TwoWay}"
+                        Minimum="3" Maximum="7" TickFrequency="1"   
+                        Style="{StaticResource SettingSliderStyle}"/>
+                <TextBlock Grid.Row="0" Grid.Column="3" 
+                        Text="{Binding SnakeStartLength}" 
+                         Style="{StaticResource SettingValueTextBlockStyle}" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" 
+                        Text="Snake Speed" 
+                        Style="{StaticResource SettingLabelTextBlockStyle}" />
+                <Slider Grid.Row="1" Grid.Column="2" 
+                        x:Name="SnakeStartSpeedSlider" Value="{Binding SnakeStartSpeed, Mode=TwoWay}"
+                        Minimum="1" Maximum="3" TickFrequency="1"
+                        Style="{StaticResource SettingSliderStyle}" />
+                <TextBlock Grid.Row="1" Grid.Column="3" 
+                        Text="{Binding SnakeStartSpeed, Converter={StaticResource SpeedConverter}}" 
+                        Style="{StaticResource SettingValueTextBlockStyle}" />
+                <TextBlock Grid.Row="2" Grid.Column="0"
+                        Text="Max Food" 
+                        Style="{StaticResource SettingLabelTextBlockStyle}" />
+                <Slider Grid.Row="2" Grid.Column="2" 
+                        x:Name="MaxFoodCountSlider" Value="{Binding MaxFoodCount, Mode=TwoWay}" 
+                        Minimum="1" Maximum="5" TickFrequency="1"                    
+                        Style="{StaticResource SettingSliderStyle}"/>
+                <TextBlock Grid.Row="2" Grid.Column="3" 
+                        Text="{Binding MaxFoodCount}"
+                        Style="{StaticResource SettingValueTextBlockStyle}" />
+
+                <TextBlock Grid.Row="3" Grid.Column="0"
+                        Text="Timed Mode"
+                        Style="{StaticResource SettingLabelTextBlockStyle}" />
+                <CheckBox Grid.Row="3" Grid.Column="1" 
+                        x:Name="IsTimedModeCheckBox" IsChecked="{Binding IsTimedMode, Mode=TwoWay}" 
+                        Style="{StaticResource SettingCheckBoxStyle}" />
+                <Slider Grid.Row="3" Grid.Column="2"
+                        x:Name="GameTimeLimitSlider" Value="{Binding GameTimeLimit, Mode=TwoWay}" IsEnabled="{Binding IsTimedMode}" 
+                        Minimum="120" Maximum="600" TickFrequency="120"                    
+                        Style="{StaticResource SettingSliderStyle}" />
+                <TextBlock Grid.Row="3" Grid.Column="3"
+                        Text="{Binding GameTimeLimit,  StringFormat='{}{0} s'}"                              
+                        Style="{StaticResource SettingValueTextBlockStyle}" />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" 
+                        Text="Obstacles"
+                        Style="{StaticResource SettingLabelTextBlockStyle}" />
+                <CheckBox Grid.Row="4" Grid.Column="1"
+                        x:Name="AreObstaclesEnabledCheckBox" IsChecked="{Binding AreObstaclesEnabled, Mode=TwoWay}" 
+                        Style="{StaticResource SettingCheckBoxStyle}" />
+                <Slider Grid.Row="4" Grid.Column="2"
+                        x:Name="ObstacleCountSlider" Value="{Binding ObstacleCount, Mode=TwoWay}" IsEnabled="{Binding AreObstaclesEnabled}" 
+                        Minimum="5" Maximum="10" TickFrequency="1"
+                        Style="{StaticResource SettingSliderStyle}" />
+                <TextBlock Grid.Row="4" Grid.Column="3"
+                        Text="{Binding ObstacleCount}"
+                        Style="{StaticResource SettingValueTextBlockStyle}" />
+
+                <Border Grid.Row="5" Grid.ColumnSpan="4"
+                        Style="{StaticResource SettingDifficultyBorderStyle}"
+                        Background="{Binding Difficulty, Converter={StaticResource ValueToColorConverter}}">
+                    <TextBlock Text="{Binding Difficulty}" Style="{StaticResource SettingDifficultyTextBlockStyle}" />
+                </Border>
+
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2" Style="{StaticResource FooterStackPanelStyle}">
+            <Button Content="Save" IsDefault="True" Style="{StaticResource FooterSaveButtonStyle}" Click="SaveButton_Click"/>
+            <Button Content="Cancel" IsCancel="True" Style="{StaticResource FooterCancelButtonStyle}" Click="CancelButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>

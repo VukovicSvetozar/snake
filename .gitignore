@@ -1,0 +1,10 @@
+# Ignoriši kompajlirane fajlove u bilo kom podfolderu
+**/bin/
+**/obj/
+
+# Ignoriši korisnička podešavanja vizuelnog studija/ridera
+**/*.user
+
+# Ignoriši sistemske fajlove
+.DS_Store
+Thumbs.db
