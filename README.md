@@ -23,6 +23,7 @@ Igrač upravlja zmijom koja se kreće terenom, prikuplja raznovrsne vrste voća 
 <div align="center">
   <img src="assets/1.png" width="700" alt="Glavni prozor igre">
 </div>
+
 ---
 
 ## 2. Pokretanje i kontrole na tastaturi
@@ -31,12 +32,12 @@ Aplikacija posjeduje sistem prečica za upravljanje prozorima i tokovima izvrša
 
 | Prečica | Funkcionalnost | Kontekst |
 | :--- | :--- | :--- |
-| `Ctrl + S` | Pokretanje nove partije (zmija se stvara u centru i kreće u nasumičnom smjeru) | Glavni meni |
+| `Ctrl+S`| Pokretanje nove partije (zmija se stvara u centru i kreće u nasumičnom smjeru) | Glavni meni |
 | `Space` | Pauziranje i nastavak igre bez gubitka trenutnog stanja | Tokom aktivne igre |
 | `F11` | Uključivanje i isključivanje fullscreen opcije | Bilo kada |
-| `Ctrl + O` | Otvaranje prozora sa podešavanjima | Glavni meni (nedostupno tokom igre) |
-| `Ctrl + L` | Pristup listi najboljih rezultata (Leaderboard) | Glavni meni (nedostupno tokom igre) |
-| `Ctrl + Q` | Izlaz iz aplikacije uz prikaz dijaloga za potvrdu | Bilo kada |
+| `Ctrl+O` | Otvaranje prozora sa podešavanjima | Glavni meni (nedostupno tokom igre) |
+| `Ctrl+L` | Pristup listi najboljih rezultata (Leaderboard) | Glavni meni (nedostupno tokom igre) |
+| `Ctrl+Q` | Izlaz iz aplikacije uz prikaz dijaloga za potvrdu | Bilo kada |
 
 *Napomena: Tokom igre veličina prozora se može slobodno mijenjati, a teren i sama zmija se automatski prilagođavaju novim dimenzijama.*
 
@@ -53,7 +54,7 @@ Kroz prozor `Settings` moguće je konfigurisati sljedeće parametre prije počet
 * **Obstacles:** Omogućava dodavanje statičkih prepreka na terenu i određivanje njihovog tačnog broja.
 
 <div align="center">
-  <img src="assets/2.png" width="700" alt="Podešavanja">
+  <img src="assets/2.png" width="600" alt="Podešavanja">
 </div>
 
 ### Sistem računanja težine
@@ -72,7 +73,7 @@ Partija se automatski završava na jedan od četiri načina:
 
 Po završetku partije, na ekranu se prikazuje dijalog sa obavještenjem o ishodu i tačnim razlogom završetka, poput „Collision" ili „Time up".
 <div align="center">
-  <img src="assets/3.png" width="400" alt="Kraj igre">
+  <img src="assets/3.png" width="390" alt="Kraj igre">
   <img src="assets/4.png" width="400" alt="Kraj igre">
 </div>
 
@@ -83,5 +84,5 @@ Po završetku partije, na ekranu se prikazuje dijalog sa obavještenjem o ishodu
 * Ako igrač nakon završetka partije osvoji dovoljan broj poena da se plasira među najbolje rezultate, prikazuje se dijalog za unos imena.
 * Nakon unosa, rezultat se automatski dodaje na rang listu koja trajno čuva i prikazuje osam igrača sa najvećim brojem poena.
 <div align="center">
-  <img src="assets/5.png" width="700" alt="Rang lista">
+  <img src="assets/5.png" width="600" alt="Rang lista">
 </div>
